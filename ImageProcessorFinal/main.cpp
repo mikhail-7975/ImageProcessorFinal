@@ -3,8 +3,9 @@
 
 int main() {
 	TextAligner t;
+
 	t.upload("text.bmp");
 	t.alignText();
-	t.save("rotated_.bmp");
+	t.save("rotated1.bmp");
 	return 0;
 }

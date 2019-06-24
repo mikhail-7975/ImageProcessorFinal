@@ -11,6 +11,7 @@ public:
 protected:
 	
 	cv::Mat _img;
+	cv::Mat result;
 };
 
 class TextAligner : public ImageProcessor {

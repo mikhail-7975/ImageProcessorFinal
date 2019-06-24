@@ -7,6 +7,7 @@ ImageProcessor::~ImageProcessor()
 int ImageProcessor::upload(const std::string name)
 {
 	_img = cv::imread(name, 0);
+	result = cv::imread(name, 0);
 	if (_img.data == NULL) return 1; else return 0;
 }
 
@@ -65,7 +66,7 @@ double TextAligner::computeAngle()
 double TextAligner::rotateImg(double angle)
 {
 
-	cv::Mat img = cv::imread("text.bmp", 0);
+	cv::Mat img = result;
 
 	cv::bitwise_not(img, img);
 
