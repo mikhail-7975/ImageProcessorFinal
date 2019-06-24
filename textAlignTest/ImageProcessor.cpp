@@ -7,12 +7,13 @@ ImageProcessor::~ImageProcessor()
 int ImageProcessor::upload(const std::string name)
 {
 	_img = cv::imread(name, 0);
-	result = cv::imread(name, 0);
+	duplicate = cv::imread(name, 0);
 	if (_img.data == NULL) return 1; else return 0;
 }
 
 int ImageProcessor::save(const std::string name)
 {
+	if (_img.data == NULL) return 1;
 	cv::imwrite(name, _img);
 	return 0;
 }
@@ -28,7 +29,7 @@ int TextAligner::alignText()
 
 double TextAligner::computeAngle()
 {
-
+	if (_img.data == NULL) return 0.;
 	// Load in grayscale.
 	cv::Mat img = _img;//cv::imread("text.bmp", 0);
 
@@ -65,8 +66,12 @@ double TextAligner::computeAngle()
 
 double TextAligner::rotateImg(double angle)
 {
-
-	cv::Mat img = result;
+	if (duplicate.data == NULL) return -1;
+	if (angle == 0) {
+		_img = duplicate;
+		return 0;
+	}
+	cv::Mat img = duplicate;
 
 	cv::bitwise_not(img, img);
 

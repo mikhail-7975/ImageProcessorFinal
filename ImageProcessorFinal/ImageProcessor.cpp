@@ -7,30 +7,34 @@ ImageProcessor::~ImageProcessor()
 int ImageProcessor::upload(const std::string name)
 {
 	_img = cv::imread(name, 0);
-	result = cv::imread(name, 0);
-	if ((_img.data == NULL) || (result.data == NULL)) return 1; else return 0;
+	duplicate = cv::imread(name, 0);
+	if ((_img.data == NULL) || (duplicate.data == NULL)) return 1;
+	else return 0;
 }
 
 int ImageProcessor::save(const std::string name)
 {
+	if (_img.data == NULL) return 1;
 	cv::imwrite(name, _img);
 	return 0;
 }
 
 int TextAligner::alignText()
 {
+	if (_img.data == NULL) return 1; 
 	double angle = computeAngle();
-
 	std::cout << angle;
 	rotateImg(angle);
+	//rotateImg(0);
 	return 0;
 }
 
 double TextAligner::computeAngle()
 {
+	if (_img.data == NULL) return 0.; 
 
 	// Load in grayscale.
-	cv::Mat img = _img;//cv::imread("text.bmp", 0);
+	cv::Mat img = _img;
 
 	// Binarize
 	cv::threshold(img, img, 225, 255, cv::THRESH_BINARY);
@@ -63,10 +67,16 @@ double TextAligner::computeAngle()
 	return angle;
 }
 
-double TextAligner::rotateImg(double angle)
+void TextAligner::rotateImg(double angle)
 {
+	if (duplicate.data == NULL) return;
+	if (angle == 0) {
+		_img = duplicate;
+		return;
+	}
 
-	cv::Mat img = result;
+	cv::Mat img = duplicate;
+	//cv::Mat img = _img;
 
 	cv::bitwise_not(img, img);
 
@@ -87,7 +97,4 @@ double TextAligner::rotateImg(double angle)
 	cv::bitwise_not(rotated, rotated);
 
 	_img = rotated;
-	//cv::imwrite("out.bmp", rotated);
-
-	return 0;
 }
