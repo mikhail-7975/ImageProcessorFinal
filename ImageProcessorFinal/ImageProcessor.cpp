@@ -8,7 +8,7 @@ int ImageProcessor::upload(const std::string name)
 {
 	_img = cv::imread(name, 0);
 	result = cv::imread(name, 0);
-	if (_img.data == NULL) return 1; else return 0;
+	if ((_img.data == NULL) || (result.data == NULL)) return 1; else return 0;
 }
 
 int ImageProcessor::save(const std::string name)

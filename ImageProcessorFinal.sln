@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageProcessorFinal", "ImageProcessorFinal\ImageProcessorFinal.vcxproj", "{388279CB-0498-43D0-90B5-F36E831ED41B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "textAlignTest", "textAlignTest\textAlignTest.vcxproj", "{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{388279CB-0498-43D0-90B5-F36E831ED41B}.Release|x64.Build.0 = Release|x64
 		{388279CB-0498-43D0-90B5-F36E831ED41B}.Release|x86.ActiveCfg = Release|Win32
 		{388279CB-0498-43D0-90B5-F36E831ED41B}.Release|x86.Build.0 = Release|Win32
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Debug|x64.ActiveCfg = Debug|x64
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Debug|x64.Build.0 = Debug|x64
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Debug|x86.ActiveCfg = Debug|Win32
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Debug|x86.Build.0 = Debug|Win32
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Release|x64.ActiveCfg = Release|x64
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Release|x64.Build.0 = Release|x64
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Release|x86.ActiveCfg = Release|Win32
+		{E60516A6-ADB6-4B77-9E89-AC2F7717BD64}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
