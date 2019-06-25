@@ -60,7 +60,7 @@ double TextAligner::computeAngle()
 	for (int i = 0; i < 4; ++i)
 		cv::line(img, vertices[i], vertices[(i + 1) % 4], cv::Scalar(255, 0, 0), 1, 16);
 
-
+	if (angle < -2) angle += 90;
 	return angle;
 }
 
