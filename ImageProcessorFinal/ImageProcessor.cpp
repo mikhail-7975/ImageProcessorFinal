@@ -22,6 +22,7 @@ int ImageProcessor::save(const std::string name)
 int TextAligner::alignText()
 {
 	if (_img.data == NULL) return 1; 
+
 	double angle = computeAngle();
 	std::cout << angle;
 	rotateImg(angle);
